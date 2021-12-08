@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+import sportinggrounds
 from users import views as user_views
+from sportinggrounds import views as sportinggrounds_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,6 +29,8 @@ urlpatterns = [
     path('', include('sportinggrounds.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name ='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name ='logout'),
+    path('create/', sportinggrounds_views.create, name='createSportingground'),
+    path('ground/', sportinggrounds.views.show_ground, name='show_Ground'),
 ]
 
 if settings.DEBUG:

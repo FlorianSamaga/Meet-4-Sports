@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'Meet4.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Meet4Sports',
-        'USER': 'meetwebsite',
-        'PASSWORD': '*ACB2D00A7DB76AFB0B496A54EFD37074D939661E',
+        'NAME': 'meet4sport',
+        'USER': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': ''
     }
