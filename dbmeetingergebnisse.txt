@@ -1,0 +1,11 @@
+dateopen date
+dateclosed date
+umkleidemöglichkeiten boolean
+parkbeschreibung varchar
+Verkehrsanbindungbeschreibung varchar
+platzart varchar
+Straße varchar
+plz varchar
+ort varchar
+land varchar
+ 
