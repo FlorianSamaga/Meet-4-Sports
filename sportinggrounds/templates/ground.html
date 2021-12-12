@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+	{% for post in posts %}
+		<h1> {{ post.name }} <img src = {{ post.image }}> </h1>
+		
+		<table>
+			<tr>
+				<th><strong>Sport: </strong></th>
+				<th>{{ post.type }}</th>
+			</tr>
+			<tr>
+				<th><strong>Opening hours: </strong></th>
+				<th>{{ post.opens }} - {{post.closes}}</th>
+			</tr>
+			<tr>
+				<th><strong>Chaningrooms: </strong></th>
+				<th>{{ post.changingrooms }}</th>
+			</tr>
+			<tr>
+				<th><strong>Parking: </strong></th>
+				<th>{{ post.parkingsituation }}</th>
+			</tr>
+			<tr>
+				<th><strong>Public transportation:</strong></th>
+				<th>{{ post.publictransportation }}</th>
+			</tr>
+		</table>
+		
+		
+		
+		<!--
+		<body>
+			<br><strong>Sport: </strong>  {{ post.type }}</br>
+			<br><strong>Opening hours:</strong> {{ post.opens }} - {{post.closes}}</br>
+			<br><strong>Chaningrooms:</strong> {{ post.changingrooms }}</br>
+			<br><strong>Parking:</strong> {{ post.parkingsituation }}</br>
+			<br><strong>Public transportation:</strong> {{ post.publictransportation }}</br>
+		</body>
+		-->
+			<br></br>
+			<br><strong>Adress:</strong></br>
+			<br>{{ post.street }}</br>
+			<br>{{ post.postal}} {{ post.area }}</br>
+			<br>{{ post.country }}</br>
+		
+		
+	{% endfor %}
+{% endblock content %}
