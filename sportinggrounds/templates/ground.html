@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 	{% for post in posts %}
-		<h1> {{ post.name }} <img src = {{ post.image }}> </h1>
+		<h1> {{ post.name }} <img src = {{ post.image.url }}> </h1>
 		
 		<table>
 			<tr>

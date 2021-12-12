@@ -36,8 +36,10 @@ def home(request):
     qs = Grounds.objects.all()
 
     for temp in qs:
-        dic = {'name': temp.name, 'image': temp.image}
+        dic = {'name': temp.name, 'image': temp.image, 'type': temp.type}
         posts.append(dic)
+
+        #TODO Sportart
 
     context={
         'posts':posts

@@ -13,7 +13,7 @@ class Grounds(models.Model):
     changingrooms=models.BooleanField(default=False, blank=True)
     parkingsituation=models.TextField(default=None, blank=True)
     publictransportation=models.TextField(default=None, blank=True)
-    image = models.ImageField(default='default.jpg', upload_to='sportground_pics')
+    image = models.ImageField(default='sportground_pics/default.jpg', upload_to='sportground_pics')
     
     class Meta:
         constraints = [

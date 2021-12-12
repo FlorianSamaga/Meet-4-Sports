@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 	{% for post in posts %}
-		<img src = {{ post.image }}> 
+		<img src = {{ post.image.url }}> 
 		<h1>
 			<a href="/ground/?name={{ post.name }}"> <font color="#000000">{{ post.name }} </a>
+			<a href="/ground/?name={{ post.name }}"> <font color="#000000"> [{{ post.type }}] </a>
 		</h1>
 	{% endfor %}
 {% endblock content %}
