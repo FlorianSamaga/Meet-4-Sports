@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import GroundsRegisterForm
+from .forms import GroundPictureForm, CreateGroundForm
 from django.contrib import messages
 from .models import Grounds
 from django.contrib.auth.decorators import login_required
@@ -39,8 +39,6 @@ def home(request):
         dic = {'name': temp.name, 'image': temp.image, 'type': temp.type}
         posts.append(dic)
 
-        #TODO Sportart
-
     context={
         'posts':posts
     }
@@ -50,16 +48,16 @@ def home(request):
 @login_required
 def create(request):
     if request.method == 'POST':
-        form = GroundsRegisterForm(request.POST)
-        
-        if form.is_valid():
+        info_form = CreateGroundForm(request.POST, request.FILES)
+    
+        if info_form.is_valid():
             messages.success(request, f'Sportingground has been created!')
-            form.save()
-            return redirect('sportinggrounds')
+            info_form.save()
         else:
-            messages.error(request, f'Error while creating sportingground.')
+            messages.error(request, f'Error while creating sportsground information.')
             return redirect('createSportingground')
-            
+
+        return redirect('sportinggrounds')   
     else:
-        form = GroundsRegisterForm(request.FILES)
-        return render(request, 'create.html', {'form': form})
+        info_form = CreateGroundForm()
+        return render(request, 'create.html', {'info_form': info_form})

@@ -2,11 +2,11 @@
 {% load crispy_forms_tags %}
 {% block content %}
 	<div class="content-section">
-		<form method="POST">
+		<form enctype="multipart/form-data" method="POST" action="">
 			{% csrf_token %}
 			<fieldset class="form-group">
 				<legend class="border-bottom mb-4">Create Sportingground</legend>
-				{{ form|crispy }}
+				{{ info_form|crispy }}
 			</fieldset>
 			<div class="form-group">
 				<button class="btn btn-outline-info" type="submit">create</button>
