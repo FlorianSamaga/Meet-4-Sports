@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+	<div class="content-section">
+			{% csrf_token %}
+			<input name="searchName" type="text" maxlength="25" id="searchName" class="searchField"/>
+			<input type="button" value="search" onclick="getGround();">
+
+			<script>
+				function getGround() {
+					var input = document.getElementById("searchName").value;
+					window.location.href = "/ground/?name=" + input;
+				}
+			</script>
+	</div>
+
 	{% for post in posts %}
 		<img src = {{ post.image.url }}> 
 		<h1>

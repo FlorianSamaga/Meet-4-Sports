@@ -13,9 +13,9 @@ def show_ground(request):
         qs = Grounds.objects.filter(name=name)
         for temp in qs:
             if temp.changingrooms == 'false':
-                chRo = 'available'
-            else:
                 chRo = 'not available'
+            else:
+                chRo = 'ailable'
 
             dic = {'name': temp.name, 'type': temp.type, 'street': temp.street, 'postal': temp.postal, 'area': temp.area, 'country': temp.country, 'opens': temp.opens, 'closes': temp.closes, 'changingrooms': chRo, 'parkingsituation': temp.parkingsituation, 'publictransportation': temp.publictransportation, 'image': temp.image}
             posts.append(dic)
@@ -32,17 +32,17 @@ def show_ground(request):
 
 
 def home(request):
-    posts = []
-    qs = Grounds.objects.all()
+    if request.method == 'GET':
+        posts = []
+        qs = Grounds.objects.all()
+        for temp in qs:
+            dic = {'name': temp.name, 'image': temp.image, 'type': temp.type}
+            posts.append(dic)
 
-    for temp in qs:
-        dic = {'name': temp.name, 'image': temp.image, 'type': temp.type}
-        posts.append(dic)
-
-    context={
-        'posts':posts
-    }
-    return render(request, 'home.html', context)
+        context={
+            'posts':posts
+        }
+        return render(request, 'home.html', context)
 
 
 @login_required
