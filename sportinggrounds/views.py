@@ -15,7 +15,7 @@ def show_ground(request):
             if temp.changingrooms == 'false':
                 chRo = 'not available'
             else:
-                chRo = 'ailable'
+                chRo = 'available'
 
             dic = {'name': temp.name, 'type': temp.type, 'street': temp.street, 'postal': temp.postal, 'area': temp.area, 'country': temp.country, 'opens': temp.opens, 'closes': temp.closes, 'changingrooms': chRo, 'parkingsituation': temp.parkingsituation, 'publictransportation': temp.publictransportation, 'image': temp.image}
             posts.append(dic)
